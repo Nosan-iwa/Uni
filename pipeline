@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/username/repository-name.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building HTML Project'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'cp index.html /var/www/html/'
+            }
+        }
+
+    }
+}
